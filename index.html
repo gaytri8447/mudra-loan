@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mudra Finance Marketplace - Empower Your Dreams with Instant Business Loans</title>
+  
+  <!-- Font Awesome for Icons (CDN for production use) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Fonts - Devanagari Support -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Hind:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP Animation Library (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  
+  <style>
+    /* ===== ROOT VARIABLES ===== */
+    :root {
+      /* Colors */
+      --dark-bg: #080815;
+      --dark-surface: #0f1022;
+      --dark-surface-2: #14162d;
+      --gold: #ffc107;
+      --gold-light: #ffda65;
+      --gold-dark: #cc9a05;
+      --cyan: #00e5ff;
+      --cyan-light: #73ffff;
+      --cyan-dark: #00b3cc;
+      --electric-blue: #2196f3;
+      --red: #f44336;
+      --green: #4caf50;
+      
+      /* Fonts */
+      --font-primary: 'Poppins', sans-serif;
+      --font-devanagari: 'Hind', sans-serif;
+      
+      /* Shadows */
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+      
+      /* Animations */
+      --transition-fast: 0.2s ease;
+      --transition-normal: 0.3s ease;
+      --transition-slow: 0.5s ease;
+    }
+    
+    /* ===== RESET & BASE STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--dark-bg);
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-normal);
+    }
+    
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      outline: none;
+      border: none;
+    }
+    
+    button {
+      cursor: pointer;
+      transition: var(--transition-normal);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* ===== UTILITY CLASSES ===== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .flex {
+      display: flex;
+    }
+    
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .flex-between {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .flex-column {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    .hidden {
+      display: none !important;
+    }
+    
+    .invisible {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+    .mt-4 { margin-top: 2rem; }
+    .mt-5 { margin-top: 2.5rem; }
+    
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 2rem; }
+    .mb-5 { margin-bottom: 2.5rem; }
+    
+    /* ===== GLASS MORPHISM STYLES ===== */
+    .glass {
+      background: rgba(15, 16, 34, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .glass-dark {
+      background: rgba(8, 8, 21, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* ===== TEXT GRADIENTS ===== */
+    .text-gradient-gold {
+      background: linear-gradient(45deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .text-gradient-cyan {
+      background: linear-gradient(45deg, var(--cyan), var(--cyan-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .text-gradient-gold-cyan {
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    /* ===== GLOW EFFECTS ===== */
+    .glow-text {
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+    
+    .glow-border {
+      box-shadow: 0 0 10px currentColor, 0 0 15px rgba(0, 229, 255, 0.3);
+    }
+    
+    .glow-gold {
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.4), 0 0 30px rgba(255, 193, 7, 0.2);
+    }
+    
+    .glow-cyan {
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4), 0 0 30px rgba(0, 229, 255, 0.2);
+    }
+    
+    /* ===== BUTTONS ===== */
+    .btn {
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn i {
+      margin-right: 0.5rem;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(45deg, var(--gold), var(--gold-light));
+      color: var(--dark-bg);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.6), 0 0 30px rgba(255, 193, 7, 0.3);
+    }
+    
+    .btn-secondary {
+      background: linear-gradient(45deg, var(--cyan), var(--cyan-light));
+      color: var(--dark-bg);
+    }
+    
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.6), 0 0 30px rgba(0, 229, 255, 0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--cyan);
+      color: var(--cyan);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(0, 229, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+    }
+    
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+    
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+    
+    .btn-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    
+    .btn-icon i {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+    
+    /* Shimmer effect for buttons */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) rotate(45deg); }
+    }
+    
+    /* ===== FIXED ELEMENTS ===== */
+    .call-now-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--dark-surface);
+      padding: 10px 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      z-index: 999;
+      box-shadow: var(--shadow-md);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    
+    /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-img {
+      height: 40px;
+      margin-right: 0.5rem;
+      animation: logo-pulse 8s infinite;
+    }
+    
+    @keyframes logo-pulse {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.4)); }
+      50% { filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.7)); }
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-left: 0.5rem;
+    }
+    
+    .call-button {
+      display: flex;
+      align-items: center;
+      color: var(--gold);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      background: rgba(255, 193, 7, 0.1);
+      box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+      transition: var(--transition-normal);
+    }
+    
+    .call-button:hover {
+      background: rgba(255, 193, 7, 0.2);
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
+    }
+    
+    .call-button i {
+      font-size: 1.25rem;
+      margin-right: 0.5rem;
+      animation: shake 8s ease infinite;
+    }
+    
+    @keyframes shake {
+      0%, 90%, 100% { transform: rotate(0deg); }
+      92% { transform: rotate(10deg); }
+      94% { transform: rotate(-10deg); }
+      96% { transform: rotate(10deg); }
+      98% { transform: rotate(-10deg); }
+    }
+    
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 80px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 550px;
+      margin-right: auto;
+    }
+    
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--cyan);
+    }
+    
+    .hero-text {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+    }
+    
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+    
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      gap: 5px;
+    }
+    
+    .chip-gold {
+      background: rgba(255, 193, 7, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+    }
+    
+    .chip-cyan {
+      background: rgba(0, 229, 255, 0.15);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+    }
+    
+    .coin-canvas {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .coin {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle at center, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-bg);
+      font-weight: 700;
+      box-shadow: 0 0 30px rgba(255, 193, 7, 0.5);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .coin-1 {
+      top: 20%;
+      right: 20%;
+      animation-delay: 0s;
+    }
+    
+    .coin-2 {
+      top: 40%;
+      right: 35%;
+      width: 80px;
+      height: 80px;
+      animation-delay: 1s;
+    }
+    
+    .coin-3 {
+      top: 60%;
+      right: 25%;
+      width: 60px;
+      height: 60px;
+      animation-delay: 2s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    /* Particle Background */
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    
+    /* ===== CALCULATOR SECTION ===== */
+    .calculator-section {
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .calculator-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .calculator {
+      background: var(--dark-surface-2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.3), 0 0 40px rgba(0, 229, 255, 0.1);
+    }
+    
+    .calculator-display {
+      padding: 1.5rem;
+      background: var(--dark-bg);
+      font-family: 'Orbitron', monospace;
+      text-align: right;
+    }
+    
+    .calculator-screen {
+      font-size: 2rem;
+      width: 100%;
+      padding: 0.5rem;
+      background: transparent;
+      color: var(--cyan);
+      text-align: right;
+      border: none;
+    }
+    
+    .calculator-keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1px;
+      background: var(--dark-bg);
+    }
+    
+    .calculator-key {
+      background: var(--dark-surface);
+      color: white;
+      padding: 1rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      border: none;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+    
+    .calculator-key:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .key-operator {
+      background: var(--dark-surface-2);
+      color: var(--cyan);
+    }
+    
+    .key-operator:hover {
+      background: rgba(0, 229, 255, 0.1);
+    }
+    
+    .key-equal {
+      background: linear-gradient(45deg, var(--cyan), var(--cyan-light));
+      color: var(--dark-bg);
+      grid-column: span 2;
+    }
+    
+    .key-equal:hover {
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+      background: linear-gradient(45deg, var(--cyan-light), var(--cyan));
+    }
+    
+    .key-clear {
+      background: linear-gradient(45deg, var(--gold), var(--gold-light));
+      color: var(--dark-bg);
+    }
+    
+    .key-clear:hover {
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+      background: linear-gradient(45deg, var(--gold-light), var(--gold));
+    }
+    
+    /* ===== APPLICATION FORM SECTION ===== */
+    .application-section {
+      padding: 80px 0;
+      position: relative;
+    }
+    
+    .application-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: white;
+      transition: var(--transition-normal);
+    }
+    
+    .form-control:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+    }
+    
+    .form-select {
+      appearance: none;
+      padding-right: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 16px;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .form-row > * {
+      flex: 1;
+    }
+    
+    /* ===== ADMIN PANEL ===== */
+    .admin-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-normal);
+    }
+    
+    .admin-modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .admin-login {
+      width: 90%;
+      max-width: 400px;
+      padding: 2rem;
+      border-radius: 15px;
+      background: var(--dark-surface);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+      text-align: center;
+      transform: translateY(20px);
+      transition: var(--transition-slow);
+    }
+    
+    .admin-modal.show .admin-login {
+      transform: translateY(0);
+    }
+    
+    .admin-login-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--cyan);
+    }
+    
+    .admin-icon {
+      font-size: 2.5rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+      animation: glow 2s infinite alternate;
+    }
+    
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
+      100% { text-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 30px rgba(0, 229, 255, 0.6); }
+    }
+    
+    .admin-dashboard {
+      width: 90%;
+      max-width: 900px;
+      height: 90vh;
+      max-height: 700px;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(20px);
+      transition: var(--transition-slow);
+    }
+    
+    .admin-modal.show .admin-dashboard {
+      transform: translateY(0);
+    }
+    
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .admin-title {
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+    
+    .admin-logout {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+      transition: var(--transition-fast);
+    }
+    
+    .admin-logout:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+      background: var(--dark-surface);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stat-title {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    
+    .stat-gold .stat-value {
+      color: var(--gold);
+    }
+    
+    .stat-cyan .stat-value {
+      color: var(--cyan);
+    }
+    
+    .stat-blue .stat-value {
+      color: var(--electric-blue);
+    }
+    
+    .table-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 10px 15px 10px 35px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: white;
+      transition: var(--transition-normal);
+    }
+    
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .action-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition-fast);
+    }
+    
+    .btn-delete-all {
+      background: rgba(244, 67, 54, 0.1);
+      color: var(--red);
+      border: 1px solid rgba(244, 67, 54, 0.2);
+    }
+    
+    .btn-delete-all:hover {
+      background: rgba(244, 67, 54, 0.2);
+    }
+    
+    .btn-export {
+      background: rgba(33, 150, 243, 0.1);
+      color: var(--electric-blue);
+      border: 1px solid rgba(33, 150, 243, 0.2);
+    }
+    
+    .btn-export:hover {
+      background: rgba(33, 150, 243, 0.2);
+    }
+    
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .admin-table th {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+    
+    .admin-table td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .admin-table tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .table-empty {
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .delete-row {
+      color: var(--red);
+      background: none;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: var(--transition-fast);
+    }
+    
+    .delete-row:hover {
+      opacity: 1;
+    }
+    
+    /* ===== TOAST NOTIFICATION ===== */
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    
+    .toast {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      min-width: 250px;
+      display: flex;
+      align-items: flex-start;
+      box-shadow: var(--shadow-md);
+      animation: slide-in 0.3s ease forwards;
+      transition: var(--transition-normal);
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .toast-success {
+      background: rgba(76, 175, 80, 0.9);
+      border-left: 4px solid var(--green);
+    }
+    
+    .toast-error {
+      background: rgba(244, 67, 54, 0.9);
+      border-left: 4px solid var(--red);
+    }
+    
+    .toast-info {
+      background: rgba(33, 150, 243, 0.9);
+      border-left: 4px solid var(--electric-blue);
+    }
+    
+    .toast-icon {
+      font-size: 1.25rem;
+      margin-right: 0.5rem;
+    }
+    
+    .toast-content {
+      flex: 1;
+    }
+    
+    .toast-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .toast-message {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+    
+    @keyframes slide-in {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--dark-surface);
+      padding: 3rem 0 1rem;
+      margin-top: 5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-column h3 {
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition-fast);
+    }
+    
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+    
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.875rem;
+    }
+    
+    /* ===== RESPONSIVE STYLES ===== */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .coin-canvas {
+        width: 40%;
+      }
+      
+      .coin {
+        transform: scale(0.8);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+        padding-top: 100px;
+      }
+      
+      .hero-content {
+        margin: 0 auto;
+      }
+      
+      .hero-chips {
+        justify-content: center;
+      }
+      
+      .coin-canvas {
+        opacity: 0.5;
+        width: 100%;
+        pointer-events: none;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .table-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .search-box {
+        width: 100%;
+        max-width: none;
+      }
+      
+      .admin-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .call-button span {
+        display: none;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+      
+      .logo-text {
+        font-size: 1.25rem;
+      }
+      
+      .calculator-screen {
+        font-size: 1.5rem;
+      }
+      
+      .calculator-key {
+        padding: 0.75rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .toast {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 1s ease forwards;
+    }
+    
+    .fade-in-left {
+      animation: fadeInLeft 1s ease forwards;
+    }
+    
+    .fade-in-right {
+      animation: fadeInRight 1s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+  
+  <!-- Call Now Top Bar -->
+  <div class="call-now-bar">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <!-- Mudra Finance Logo (SVG Embed) -->
+          <svg class="logo-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" fill="#0f1022" stroke="url(#logo-gradient)" stroke-width="3"/>
+            <path d="M30 35 L30 65 M40 35 L40 65 M50 35 L50 65 M60 35 L60 65 M70 35 L70 65" stroke="#ffc107" stroke-width="2"/>
+            <path d="M30 50 L70 50" stroke="#00e5ff" stroke-width="2"/>
+            <text x="50" y="27" font-family="Arial" font-size="10" fill="#fff" text-anchor="middle">MUDRA</text>
+            <text x="50" y="80" font-family="Arial" font-size="10" fill="#fff" text-anchor="middle">FINANCE</text>
+            <defs>
+              <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffc107"/>
+                <stop offset="100%" stop-color="#00e5ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="logo-text text-gradient-gold-cyan">Mudra Finance</span>
+        </div>
+        
+        <a href="tel:9007546886" class="call-button">
+          <i class="fas fa-phone-alt"></i>
+          <span>Call Now: 9007546886</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/9007546886" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content fade-in-left">
+        <h1 class="hero-title">
+          <span class="text-gradient-gold">Empower Your Dreams</span><br>
+          with Instant Business Loans
+        </h1>
+        
+        <h2 class="hero-subtitle">
+          Trusted Government Marketplace for Entrepreneurs
+        </h2>
+        
+        <p class="hero-text">
+          Access collateral-free business loans up to ₹10 lakhs with minimal documentation and quick approval process. Start or grow your business with Mudra Finance.
+        </p>
+        
+        <div class="hero-chips">
+          <div class="chip chip-gold">
+            <i class="fas fa-check-circle"></i>
+            <span>No Collateral Required</span>
+          </div>
+          <div class="chip chip-cyan">
+            <i class="fas fa-bolt"></i>
+            <span>Quick Approval</span>
+          </div>
+          <div class="chip chip-gold">
+            <i class="fas fa-file-alt"></i>
+            <span>Minimal Documentation</span>
+          </div>
+        </div>
+        
+        <a href="#apply" class="btn btn-primary btn-lg btn-shimmer">
+          <i class="fas fa-paper-plane"></i>
+          Apply for Mudra Loan Now
+        </a>
+      </div>
+      
+      <!-- 3D Coins Animation -->
+      <div class="coin-canvas fade-in-right">
+        <div class="coin coin-1">₹</div>
+        <div class="coin coin-2">₹</div>
+        <div class="coin coin-3">₹</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Calculator Section -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">
+        <span class="text-gradient-cyan">Loan Calculator</span>
+      </h2>
+      <p class="text-center mb-5" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+        Use our calculator to estimate your loan amount, interest rates, and monthly payments to plan your business finances better.
+      </p>
+      
+      <div class="calculator-container fade-in-up">
+        <div class="calculator">
+          <div class="calculator-display">
+            <input type="text" class="calculator-screen" id="calc-display" readonly>
+          </div>
+          
+          <div class="calculator-keys">
+            <button class="calculator-key key-clear" data-action="clear">C</button>
+            <button class="calculator-key key-operator" data-action="divide">÷</button>
+            <button class="calculator-key key-operator" data-action="multiply">×</button>
+            <button class="calculator-key key-operator" data-action="subtract">-</button>
+            
+            <button class="calculator-key">7</button>
+            <button class="calculator-key">8</button>
+            <button class="calculator-key">9</button>
+            <button class="calculator-key key-operator" data-action="add">+</button>
+            
+            <button class="calculator-key">4</button>
+            <button class="calculator-key">5</button>
+            <button class="calculator-key">6</button>
+            <button class="calculator-key key-operator" data-action="percent">%</button>
+            
+            <button class="calculator-key">1</button>
+            <button class="calculator-key">2</button>
+            <button class="calculator-key">3</button>
+            <button class="calculator-key key-equal" data-action="calculate">=</button>
+            
+            <button class="calculator-key" style="grid-column: span 2;">0</button>
+            <button class="calculator-key">.</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Application Form Section -->
+  <section class="application-section" id="apply">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">
+        <span class="text-gradient-gold">Apply for a Loan</span>
+      </h2>
+      <p class="text-center mb-5" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+        Fill out the form below to apply for a Mudra loan. Our team will review your application and get back to you within 24-48 hours.
+      </p>
+      
+      <div class="application-form glass fade-in-up">
+        <form id="loan-application-form">
+          <div class="form-group">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="loanType" class="form-label">Loan Type</label>
+            <select id="loanType" class="form-control form-select" required>
+              <option value="" disabled selected>Select loan type</option>
+              <option value="Shishu">Shishu (Up to ₹50,000)</option>
+              <option value="Kishore">Kishore (Up to ₹5 Lakhs)</option>
+              <option value="Tarun">Tarun (Up to ₹10 Lakhs)</option>
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="loanAmount" class="form-label">Loan Amount (₹)</label>
+              <input type="number" id="loanAmount" class="form-control" placeholder="Enter loan amount" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="interestRate" class="form-label">Interest Rate (%)</label>
+              <input type="number" id="interestRate" class="form-control" placeholder="Enter interest rate" step="0.01" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="businessType" class="form-label">Business Type</label>
+            <select id="businessType" class="form-control form-select">
+              <option value="" disabled selected>Select your business type</option>
+              <option value="Retail">Retail</option>
+              <option value="Manufacturing">Manufacturing</option>
+              <option value="Service">Service</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary btn-lg w-100 btn-shimmer">
+              <i class="fas fa-paper-plane"></i>
+              Submit Application
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Admin Modal -->
+  <div class="admin-modal" id="admin-modal">
+    <!-- Admin Login Form -->
+    <div class="admin-login" id="admin-login">
+      <div class="admin-icon">
+        <i class="fas fa-user-shield"></i>
+      </div>
+      <h3 class="admin-login-title">Admin Portal</h3>
+      
+      <form id="admin-login-form">
+        <div class="form-group">
+          <label for="adminUsername" class="form-label">Username</label>
+          <input type="text" id="adminUsername" class="form-control" placeholder="Enter username" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="adminPassword" class="form-label">Password</label>
+          <input type="password" id="adminPassword" class="form-control" placeholder="Enter password" required>
+        </div>
+        
+        <div class="form-group mt-4">
+          <button type="submit" class="btn btn-secondary w-100">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </button>
+        </div>
+        
+        <div id="login-error" class="mt-3 text-center" style="color: var(--red); display: none;">
+          Invalid username or password. Please try again.
+        </div>
+      </form>
+    </div>
+    
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard glass-dark" id="admin-dashboard" style="display: none;">
+      <div class="admin-header">
+        <h3 class="admin-title">
+          <i class="fas fa-tachometer-alt"></i>
+          Mudra Finance Admin Dashboard
+        </h3>
+        
+        <button id="admin-logout" class="admin-logout">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </button>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card stat-gold">
+          <div class="stat-title">Total Applications</div>
+          <div class="stat-value" id="total-applications">0</div>
+        </div>
+        
+        <div class="stat-card stat-cyan">
+          <div class="stat-title">Total Amount (₹)</div>
+          <div class="stat-value" id="total-amount">0</div>
+        </div>
+        
+        <div class="stat-card stat-blue">
+          <div class="stat-title">Average Interest Rate</div>
+          <div class="stat-value" id="avg-interest">0%</div>
+        </div>
+      </div>
+      
+      <div class="table-actions">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="search-applications" class="search-input" placeholder="Search applications...">
+        </div>
+        
+        <div class="action-buttons">
+          <button id="export-csv" class="action-btn btn-export">
+            <i class="fas fa-file-export"></i>
+            Export CSV
+          </button>
+          
+          <button id="clear-all" class="action-btn btn-delete-all">
+            <i class="fas fa-trash-alt"></i>
+            Clear All
+          </button>
+        </div>
+      </div>
+      
+      <div style="overflow-x: auto;">
+        <table class="admin-table" id="applications-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Loan Type</th>
+              <th>Amount (₹)</th>
+              <th>Interest Rate</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="applications-tbody">
+            <tr>
+              <td colspan="7" class="table-empty">No applications found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+  
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Mudra Finance</h3>
+          <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem;">
+            Enabling financial inclusivity and entrepreneurship through accessible business loans.
+          </p>
+          <div class="social-links" style="display: flex; gap: 1rem;">
+            <a href="#" style="color: var(--gold);"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="color: var(--gold);"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color: var(--gold);"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: var(--gold);"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#calculator">Loan Calculator</a></li>
+            <li><a href="#apply">Apply Now</a></li>
+            <li><a href="#">About Mudra Scheme</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Loan Types</h3>
+          <ul class="footer-links">
+            <li><a href="#">Shishu (Up to ₹50,000)</a></li>
+            <li><a href="#">Kishore (Up to ₹5 Lakhs)</a></li>
+            <li><a href="#">Tarun (Up to ₹10 Lakhs)</a></li>
+            <li><a href="#">Compare All Loans</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-phone-alt" style="color: var(--cyan); margin-right: 0.5rem;"></i>9007546886 </li>
+            <li><i class="fas fa-envelope" style="color: var(--cyan); margin-right: 0.5rem;"></i> onlineservicedov2@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt" style="color: var(--cyan); margin-right: 0.5rem;"></i> New Delhi, India</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2023 Mudra Finance Marketplace. All rights reserved. | Designed by <span style="color: var(--gold);">Bittu Chauhan</span></p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // ======= PARTICLES.JS (MINIMAL VERSION) =======
+    document.addEventListener('DOMContentLoaded', function() {
+      const particlesCanvas = document.getElementById('particles-js');
+      const ctx = document.createElement('canvas').getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      let particlesArray = [];
+      let width, height;
+      
+      function setupCanvas() {
+        const canvas = document.createElement('canvas');
+        particlesCanvas.appendChild(canvas);
+        width = particlesCanvas.offsetWidth;
+        height = particlesCanvas.offsetHeight;
+        
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        
+        ctx.canvas = canvas;
+        ctx.scale(dpr, dpr);
+      }
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * 1 - 0.5;
+          this.color = Math.random() > 0.5 ? 
+                       'rgba(0, 229, 255, ' + (Math.random() * 0.3 + 0.2) + ')' : 
+                       'rgba(255, 193, 7, ' + (Math.random() * 0.3 + 0.2) + ')';
+        }
+        
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          
+          if (this.size > 0.2) this.size -= 0.01;
+          
+          if (this.x < 0 || this.x > width) this.speedX *= -1;
+          if (this.y < 0 || this.y > height) this.speedY *= -1;
+        }
+        
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      
+      function init() {
+        setupCanvas();
+        particlesArray = [];
+        const numberOfParticles = Math.min(width * 0.1, 100);
+        
+        for (let i = 0; i < numberOfParticles; i++) {
+          particlesArray.push(new Particle());
+        }
+      }
+      
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update();
+          particlesArray[i].draw();
+          
+          // Connect particles
+          for (let j = i; j < particlesArray.length; j++) {
+            const dx = particlesArray[i].x - particlesArray[j].x;
+            const dy = particlesArray[i].y - particlesArray[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - distance / 100)})`;
+              ctx.lineWidth = 0.5;
+              ctx.beginPath();
+              ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+              ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        
+        requestAnimationFrame(animate);
+      }
+      
+      init();
+      animate();
+      
+      window.addEventListener('resize', function() {
+        init();
+      });
+    });
+    
+    // ======= CALCULATOR FUNCTIONALITY =======
+    const SECRET_CODE = '7001196880';
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const calculatorKeys = document.querySelectorAll('.calculator-key');
+      const calculatorDisplay = document.getElementById('calc-display');
+      
+      let displayValue = '';
+      let pendingOperation = null;
+      let firstOperand = null;
+      let waitingForSecondOperand = false;
+      
+      function inputDigit(digit) {
+        if (waitingForSecondOperand) {
+          displayValue = digit;
+          waitingForSecondOperand = false;
+        } else {
+          displayValue = displayValue === '0' ? digit : displayValue + digit;
+        }
+        
+        // Check for secret code
+        if (displayValue === SECRET_CODE) {
+          openAdminModal();
+        }
+      }
+      
+      function inputDecimal() {
+        if (waitingForSecondOperand) {
+          displayValue = '0.';
+          waitingForSecondOperand = false;
+          return;
+        }
+        
+        if (!displayValue.includes('.')) {
+          displayValue += '.';
+        }
+      }
+      
+      function handleOperation(operation) {
+        const inputValue = parseFloat(displayValue);
+        
+        if (firstOperand === null) {
+          firstOperand = inputValue;
+        } else if (pendingOperation) {
+          const result = calculate(firstOperand, inputValue, pendingOperation);
+          displayValue = String(result);
+          firstOperand = result;
+        }
+        
+        waitingForSecondOperand = true;
+        pendingOperation = operation;
+      }
+      
+      function calculate(firstOperand, secondOperand, operation) {
+        if (operation === 'add') return firstOperand + secondOperand;
+        if (operation === 'subtract') return firstOperand - secondOperand;
+        if (operation === 'multiply') return firstOperand * secondOperand;
+        if (operation === 'divide') return firstOperand / secondOperand;
+        if (operation === 'percent') return firstOperand * (secondOperand / 100);
+        
+        return secondOperand;
+      }
+      
+      function resetCalculator() {
+        displayValue = '';
+        pendingOperation = null;
+        firstOperand = null;
+        waitingForSecondOperand = false;
+        updateDisplay();
+      }
+      
+      function updateDisplay() {
+        calculatorDisplay.value = displayValue || '0';
+      }
+      
+      // Add event listeners to calculator keys
+      calculatorKeys.forEach(key => {
+        key.addEventListener('click', () => {
+          const action = key.dataset.action;
+          const keyContent = key.textContent;
+          
+          if (!action) {
+            inputDigit(keyContent);
+          } else if (action === 'decimal') {
+            inputDecimal();
+          } else if (action === 'clear') {
+            resetCalculator();
+          } else if (action === 'calculate') {
+            if (pendingOperation && firstOperand !== null) {
+              const secondOperand = parseFloat(displayValue);
+              displayValue = String(calculate(firstOperand, secondOperand, pendingOperation));
+              firstOperand = null;
+              pendingOperation = null;
+              waitingForSecondOperand = false;
+            }
+          } else {
+            handleOperation(action);
+          }
+          
+          updateDisplay();
+        });
+      });
+      
+      // Initialize display
+      updateDisplay();
+    });
+    
+    // ======= FORM SUBMISSION =======
+    document.addEventListener('DOMContentLoaded', function() {
+      const loanForm = document.getElementById('loan-application-form');
+      
+      loanForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const application = {
+          id: generateId(),
+          fullName: document.getElementById('fullName').value,
+          phone: document.getElementById('phone').value,
+          email: document.getElementById('email').value,
+          loanType: document.getElementById('loanType').value,
+          loanAmount: document.getElementById('loanAmount').value,
+          interestRate: document.getElementById('interestRate').value,
+          businessType: document.getElementById('businessType').value,
+          date: new Date().toISOString()
+        };
+        
+        // Save to localStorage
+        saveApplication(application);
+        
+        // Show success toast
+        showToast('success', 'Application Submitted', 'Your loan application has been submitted successfully.');
+        
+        // Reset form
+        loanForm.reset();
+        
+        // Update admin dashboard if open
+        if (document.getElementById('admin-dashboard').style.display !== 'none') {
+          renderApplications();
+          updateStats();
+        }
+      });
+    });
+    
+    // ======= ADMIN PORTAL =======
+    document.addEventListener('DOMContentLoaded', function() {
+      const adminLoginForm = document.getElementById('admin-login-form');
+      const adminLogoutBtn = document.getElementById('admin-logout');
+      const searchInput = document.getElementById('search-applications');
+      const exportBtn = document.getElementById('export-csv');
+      const clearAllBtn = document.getElementById('clear-all');
+      
+      // Admin Login
+      adminLoginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('adminUsername').value;
+        const password = document.getElementById('adminPassword').value;
+        
+        if (username === 'bittu' && password === 'gaytri') {
+          document.getElementById('admin-login').style.display = 'none';
+          document.getElementById('admin-dashboard').style.display = 'block';
+          document.getElementById('login-error').style.display = 'none';
+          
+          // Load applications data
+          renderApplications();
+          updateStats();
+          
+          showToast('success', 'Login Successful', 'Welcome to the admin dashboard.');
+        } else {
+          document.getElementById('login-error').style.display = 'block';
+        }
+      });
+      
+      // Admin Logout
+      adminLogoutBtn.addEventListener('click', function() {
+        document.getElementById('admin-login').style.display = 'block';
+        document.getElementById('admin-dashboard').style.display = 'none';
+        document.getElementById('adminUsername').value = '';
+        document.getElementById('adminPassword').value = '';
+        closeAdminModal();
+      });
+      
+      // Search Applications
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        filterApplications(searchTerm);
+      });
+      
+      // Export CSV
+      exportBtn.addEventListener('click', function() {
+        exportToCSV();
+      });
+      
+      // Clear All Applications
+      clearAllBtn.addEventListener('click', function() {
+        if (confirm('Are you sure you want to delete all applications? This action cannot be undone.')) {
+          clearAllApplications();
+          renderApplications();
+          updateStats();
+          showToast('info', 'Data Cleared', 'All applications have been removed.');
+        }
+      });
+      
+      // Close admin modal when clicking outside
+      document.getElementById('admin-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeAdminModal();
+        }
+      });
+    });
+    
+    // Open Admin Modal
+    function openAdminModal() {
+      document.getElementById('admin-modal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Close Admin Modal
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    
+    // ======= LOCAL STORAGE FUNCTIONS =======
+    // Generate unique ID
+    function generateId() {
+      return '_' + Math.random().toString(36).substr(2, 9);
+    }
+    
+    // Save application to localStorage
+    function saveApplication(application) {
+      const applications = getApplications();
+      applications.push(application);
+      localStorage.setItem('mudraApplications', JSON.stringify(applications));
+    }
+    
+    // Get all applications from localStorage
+    function getApplications() {
+      const applications = localStorage.getItem('mudraApplications');
+      return applications ? JSON.parse(applications) : [];
+    }
+    
+    // Delete application by ID
+    function deleteApplication(id) {
+      const applications = getApplications();
+      const updatedApplications = applications.filter(app => app.id !== id);
+      localStorage.setItem('mudraApplications', JSON.stringify(updatedApplications));
+    }
+    
+    // Clear all applications
+    function clearAllApplications() {
+      localStorage.setItem('mudraApplications', JSON.stringify([]));
+    }
+    
+    // Format currency
+    function formatCurrency(amount) {
+      return parseFloat(amount).toLocaleString('en-IN');
+    }
+    
+    // ======= ADMIN DASHBOARD FUNCTIONS =======
+    // Render applications table
+    function renderApplications() {
+      const applications = getApplications();
+      const tbody = document.getElementById('applications-tbody');
+      
+      if (applications.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="table-empty">No applications found</td>
+          </tr>
+        `;
+        return;
+      }
+      
+      tbody.innerHTML = applications.map(app => `
+        <tr>
+          <td>${app.fullName}</td>
+          <td>${app.phone}</td>
+          <td>${app.email}</td>
+          <td>${app.loanType}</td>
+          <td>₹${formatCurrency(app.loanAmount)}</td>
+          <td>${app.interestRate}%</td>
+          <td>
+            <button class="delete-row" data-id="${app.id}">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+      
+      // Add event listeners to delete buttons
+      document.querySelectorAll('.delete-row').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.id;
+          deleteApplication(id);
+          renderApplications();
+          updateStats();
+          showToast('info', 'Application Deleted', 'The application has been removed.');
+        });
+      });
+    }
+    
+    // Update dashboard statistics
+    function updateStats() {
+      const applications = getApplications();
+      const totalApplications = applications.length;
+      const totalAmount = applications.reduce((sum, app) => sum + parseFloat(app.loanAmount), 0);
+      
+      let avgInterest = 0;
+      if (totalApplications > 0) {
+        avgInterest = applications.reduce((sum, app) => sum + parseFloat(app.interestRate), 0) / totalApplications;
+      }
+      
+      document.getElementById('total-applications').textContent = totalApplications;
+      document.getElementById('total-amount').textContent = formatCurrency(totalAmount);
+      document.getElementById('avg-interest').textContent = avgInterest.toFixed(2) + '%';
+    }
+    
+    // Filter applications based on search term
+    function filterApplications(searchTerm) {
+      const applications = getApplications();
+      
+      if (!searchTerm) {
+        renderApplications();
+        return;
+      }
+      
+      const filtered = applications.filter(app => 
+        app.fullName.toLowerCase().includes(searchTerm) ||
+        app.phone.includes(searchTerm) ||
+        app.email.toLowerCase().includes(searchTerm) ||
+        app.loanType.toLowerCase().includes(searchTerm) ||
+        app.loanAmount.includes(searchTerm)
+      );
+      
+      const tbody = document.getElementById('applications-tbody');
+      
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="table-empty">No matching applications found</td>
+          </tr>
+        `;
+        return;
+      }
+      
+      tbody.innerHTML = filtered.map(app => `
+        <tr>
+          <td>${app.fullName}</td>
+          <td>${app.phone}</td>
+          <td>${app.email}</td>
+          <td>${app.loanType}</td>
+          <td>₹${formatCurrency(app.loanAmount)}</td>
+          <td>${app.interestRate}%</td>
+          <td>
+            <button class="delete-row" data-id="${app.id}">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+      
+      // Re-add event listeners
+      document.querySelectorAll('.delete-row').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const id = this.dataset.id;
+          deleteApplication(id);
+          filterApplications(searchTerm);
+          updateStats();
+          showToast('info', 'Application Deleted', 'The application has been removed.');
+        });
+      });
+    }
+    
+    // Export applications to CSV
+    function exportToCSV() {
+      const applications = getApplications();
+      
+      if (applications.length === 0) {
+        showToast('error', 'Export Failed', 'No applications to export.');
+        return;
+      }
+      
+      const headers = ['Full Name', 'Phone', 'Email', 'Loan Type', 'Amount', 'Interest Rate', 'Business Type', 'Date'];
+      
+      const csvContent = [
+        headers.join(','),
+        ...applications.map(app => [
+          `"${app.fullName}"`,
+          `"${app.phone}"`,
+          `"${app.email}"`,
+          `"${app.loanType}"`,
+          app.loanAmount,
+          app.interestRate,
+          `"${app.businessType}"`,
+          app.date
+        ].join(','))
+      ].join('\n');
+      
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'mudra_applications.csv');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      showToast('success', 'Export Successful', 'Applications exported to CSV.');
+    }
+    
+    // ======= TOAST NOTIFICATIONS =======
+    function showToast(type, title, message) {
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      
+      toast.innerHTML = `
+        <div class="toast-icon">
+          <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+        </div>
+        <div class="toast-content">
+          <div class="toast-title">${title}</div>
+          <div class="toast-message">${message}</div>
+        </div>
+      `;
+      
+      document.getElementById('toast-container').appendChild(toast);
+      
+      // Trigger reflow for animation
+      void toast.offsetWidth;
+      
+      // Show toast
+      toast.classList.add('show');
+      
+      // Auto-hide after 4 seconds
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+          toast.remove();
+        }, 300);
+      }, 4000);
+    }
+    
+    // ======= SCROLL ANIMATIONS =======
+    document.addEventListener('DOMContentLoaded', function() {
+      // Use GSAP if available
+      if (typeof gsap !== 'undefined') {
+        const fadeElements = document.querySelectorAll('.fade-in, .fade-in-up, .fade-in-left, .fade-in-right');
+        
+        fadeElements.forEach(element => {
+          element.style.opacity = '0';
+        });
+        
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.to('.fade-in', {
+          scrollTrigger: {
+            trigger: '.fade-in',
+            start: 'top 80%'
+          },
+          opacity: 1,
+          duration: 1
+        });
+        
+        gsap.to('.fade-in-up', {
+          scrollTrigger: {
+            trigger: '.fade-in-up',
+            start: 'top 80%'
+          },
+          opacity: 1,
+          y: 0,
+          duration: 1
+        });
+        
+        gsap.to('.fade-in-left', {
+          scrollTrigger: {
+            trigger: '.fade-in-left',
+            start: 'top 80%'
+          },
+          opacity: 1,
+          x: 0,
+          duration: 1
+        });
+        
+        gsap.to('.fade-in-right', {
+          scrollTrigger: {
+            trigger: '.fade-in-right',
+            start: 'top 80%'
+          },
+          opacity: 1,
+          x: 0,
+          duration: 1
+        });
+      }
+    });
+  </script>
+</body>
+</html>
